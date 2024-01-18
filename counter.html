@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .peter {
+    height: 1.5cm;
+    background-color: rgb(26, 133, 176);
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5px;
+  }
+
+  h4 {
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  h4:hover {
+    background-color: #00ff00;
+    transition: 1s linear;
+    color: #000;
+  }
+
+  .mary {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  button {
+    margin: 10px;
+    width: 5cm;
+    height: 1.5cm;
+    font-size: 30px;
+    font-weight: bold;
+    border: .5px dotted;
+    border-radius: 7px;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  button:active {
+    transform: translate(.9);
+
+  }
+
+  .add {
+    background-color: #00ff00;
+  }
+
+  .minus {
+    background-color: rgb(204, 33, 33);
+  }
+
+  .john {
+    width: 100%;
+    height: 5cm;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 200px;
+    color: blue;
+  }
+</style>
+
+<body>
+  <div class="peter">
+    <h4>Home</h4>
+    <h4>Contact</h4>
+    <h4>Groups</h4>
+    <h4>Calls</h4>
+    <h4>Friends</h4>
+  </div>
+  <div class="mary">
+    <button class="add" id="add">+</button>
+    <button class="minus" id="minus">-</button>
+  </div>
+  <div class="john">
+    <h1 class="number" id="number">0</h1>
+  </div>
+</body>
+<script>
+  let add = document.getElementById('add');
+  let minus = document.getElementById('minus');
+  let number = document.getElementById('number');
+
+  let actualNumber = localStorage.getItem('number');
+
+  number.innerText = actualNumber;
+
+  add.addEventListener('click', () => {
+    let increment = number.innerText++;
+    localStorage.setItem('number', increment);
+  });
+
+  minus.addEventListener('click', () => {
+    if (number.innerText == 0) {
+      localStorage.setItem('number', number.innerText);
+    }
+    else {
+      let decrement = number.innerText--;
+      localStorage.setItem('number', decrement);
+    }
+  });
+</script>
+
+</html>
